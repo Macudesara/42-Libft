@@ -6,19 +6,18 @@
 /*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 12:15:28 by mde-sara          #+#    #+#             */
-/*   Updated: 2023/05/09 13:10:03 by mde-sara         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:40:11 by mde-sara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <ctype.h>*/
+#include "libft.h"
 
 /*if the character is between a and z or A and Z, return 1 (true), 
  * else return 0 (false)*/
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 		return (1);
 	else
 		return (0);

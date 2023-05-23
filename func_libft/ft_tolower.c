@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
+#include "libft.h"
 
 /*Upper case to lower case letter conversion 
 or the same character unchanged if it is not a letter.*/
@@ -24,7 +23,7 @@ int	ft_tolower(int c)
 		return (c);
 }
 
-int main(void) 
+/*int main(void) 
 {    
     char    letter;
 
@@ -34,4 +33,4 @@ int main(void)
     printf("Created uppercase: %c\n", letter);
     printf("Created lowercase: %c", ft_tolower(letter));
     return 0;
-}
+}*/

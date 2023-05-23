@@ -6,7 +6,7 @@
 /*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 12:05:33 by mde-sara          #+#    #+#             */
-/*   Updated: 2023/05/19 13:06:16 by mde-sara         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:50:43 by mde-sara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,17 @@
 #include <string.h>
 #include <stdio.h>
 
-/*It returns a pointer to the last occurrence of the character c in the string s*/
+/*It returns a pointer to the last occurrence 
+ * of the character c in the string s*/
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -38,6 +48,7 @@ int	main(void)
 {
 	const char *s = "I am soooo tired";
 	int			c = 'o';
+
 	printf("Character found %s\n", ft_strrchr(s, c));
 	return (0);
 }

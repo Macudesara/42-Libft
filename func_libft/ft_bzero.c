@@ -12,8 +12,7 @@
 
 /*is used to put in zero a block of memory*/
 
-/*#include <strings.h>
-#include <stdio.h>*/
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

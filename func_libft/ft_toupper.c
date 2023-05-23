@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <ctype.h>*/
+#include "libft.h"
 
 /*Lower case to upper case letter conversion 
 or the same character unchanged if it is not a letter.*/

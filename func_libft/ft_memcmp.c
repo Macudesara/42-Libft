@@ -1,16 +1,30 @@
-/*#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 11:32:15 by mde-sara          #+#    #+#             */
+/*   Updated: 2023/05/23 13:41:26 by mde-sara         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*#include <stddef.h>
+#include <stdio.h>
 #include <string.h>*/
 
-/*This function compares the first n bytes of the memory blocks pointed to by ptr1 and ptr2.
+/*This function compares the first n bytes of the memory 
+ * blocks pointed to by ptr1 and ptr2.
 If ptr1 is less than ptr2, it returns a negative value.
 If ptr1 is equal to ptr2, it returns 0.
 If ptr1 is greater than ptr2, it returns a positive value.*/
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*ss1;
 	const unsigned char	*ss2;
-	size_t			i;
+	size_t				i;
 
 	i = 0;
 	ss1 = (const unsigned char *)s1;

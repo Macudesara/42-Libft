@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 /*The strlcat function returns the total length of the resulting string*/
 

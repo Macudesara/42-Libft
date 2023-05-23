@@ -6,7 +6,7 @@
 /*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:53:24 by mde-sara          #+#    #+#             */
-/*   Updated: 2023/05/15 13:53:15 by mde-sara         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:42:31 by mde-sara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
  the last number (2) means, it gonna copy the 2 first letters
  the number 4 means, where it gonna start copying*/
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -32,14 +31,16 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	if (!src && !dest)
 		return (NULL);
 	if (dest > src)
-			while (n-- > 0)
-				d[n] = s[n];
+		while (n-- > 0)
+			d[n] = s[n];
 	else
+	{	
 		while (i < n)
 		{
 			d[i] = s[i];
 			i++;
 		}
+	}
 	return (dest);
 }
 

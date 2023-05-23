@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <ctype.h>*/
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {
@@ -23,7 +22,7 @@ int	ft_isdigit(int c)
 
 /*int	main(void)
 {
-	printf("Original %i \n", isdigit('2'));
-	printf("Created %i", ft_isdigit('2'));
+	printf("Original %i\n", isdigit(2));
+	printf("Created %i", ft_isdigit(2));
 	return (0);
 }*/

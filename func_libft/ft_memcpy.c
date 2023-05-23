@@ -6,7 +6,7 @@
 /*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:30:23 by mde-sara          #+#    #+#             */
-/*   Updated: 2023/05/15 11:52:58 by mde-sara         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:32:02 by mde-sara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@ dest is a pointer to the destination memory block where the data will be copied
 src is a pointer to the source memory block from which the data will be copied
 n is the number of bytes to copy*/
 
-/*#include <string.h>
-#include <stdio.h>*/
+//#include "libft.h"
+
+/*#include <stddef.h>
+#include <stdio.h>
+#include <string.h>*/
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
