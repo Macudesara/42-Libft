@@ -1,60 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macudesarasqueta <macudesarasqueta@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:30:33 by mde-sara          #+#    #+#             */
-/*   Updated: 2024/04/15 14:50:00 by macudesaras      ###   ########.fr       */
+/*   Updated: 2024/04/15 15:12:26 by macudesaras      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+void ft_lstclear(t_list **lst, void (*del)(void*))
 {
-    int len;
+	t_list	*temp;
 
-    len = 0;
-    while (lst)
-    {
-        len++;
-        lst = lst->next;
-    }
-    return (len);
+    if (!lst)
+		return ;
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
+	}
+    *lst = NULL;
 }
 
 /*#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-int main(void)
+void delete_content(void *content)
+{
+    printf("Deleting content: %s\n", (char *)content);
+    free(content); // Liberamos la memoria asignada para el contenido
+}
+
+int main()
 {
     t_list *node1 = malloc(sizeof(t_list));
     t_list *node2 = malloc(sizeof(t_list));
     t_list *node3 = malloc(sizeof(t_list));
 
-	int *data1 = malloc(sizeof(int));
-    *data1 = 10;
-    node1->content = data1;
+    node1->content = strdup("Node 1");
+    node2->content = strdup("Node 2");
+    node3->content = strdup("Node 3");
 
-    int *data2 = malloc(sizeof(int));
-    *data2 = 20;
-    node2->content = data2;
-
-    int *data3 = malloc(sizeof(int));
-    *data3 = 30;
-    node3->content = data3;
-    // Asignar valores a los nodos
-
-    // Enlazar los nodos
     node1->next = node2;
     node2->next = node3;
     node3->next = NULL;
 
-	node1->next = node2;
-	node2->next = node3;
-	int size = ft_lstsize(node1);
-	printf("Size = %d\n", size);
-	return 0;
+    // Llamamos a ft_lstclear para limpiar la lista
+    ft_lstclear(&node1, &delete_content);
+    printf("Lista limpiada correctamente\n");
+    return 0;
 }*/

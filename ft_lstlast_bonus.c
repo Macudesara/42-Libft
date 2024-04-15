@@ -1,62 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macudesarasqueta <macudesarasqueta@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:30:33 by mde-sara          #+#    #+#             */
-/*   Updated: 2024/04/15 15:17:51 by macudesaras      ###   ########.fr       */
+/*   Updated: 2024/04/15 15:00:48 by macudesaras      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+t_list *ft_lstlast(t_list *lst)
 {
     if (!lst)
-		return ;
-    while (lst)
-    {
-        (*f)(lst->content);
-        lst = lst->next;
-    }
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
 
-/*void print_content(void *content)
-{
-    printf("%s\n", (char *)content);
-}
+/*#include <stdio.h>
+#include <stdlib.h>
 
-int main(void)
+int main()
 {
+    // Creamos algunos nodos para una lista enlazada
     t_list *node1 = malloc(sizeof(t_list));
-    node1->content = "Hello";
     t_list *node2 = malloc(sizeof(t_list));
-    node2->content = "world!";
     t_list *node3 = malloc(sizeof(t_list));
-    node3->content = "Welcome";
-    t_list *node4 = malloc(sizeof(t_list));
-    node4->content = "to";
-    t_list *node5 = malloc(sizeof(t_list));
-    node5->content = "My Github";
 
-    // Configuramos los punteros next para formar una lista
+    if (!node1 || !node2 || !node3)
+    {
+        perror("Error: malloc failed");
+        return 1;
+    }
+
+    // Asignamos algunos valores a los nodos
+    node1->content = "First";
     node1->next = node2;
+    node2->content = "Second";
     node2->next = node3;
-    node3->next = node4;
-    node4->next = node5;
-    node5->next = NULL;
+    node3->content = "Third";
+    node3->next = NULL;
 
-    // Llamamos a ft_lstiter para imprimir el contenido de cada nodo
-    ft_lstiter(node1, &print_content);
+    t_list *last_node = ft_lstlast(node1);
+    printf("Contenido del último nodo: %s\n", (char *)last_node->content);
 
-    // Liberamos la memoria asignada a los nodos
     free(node1);
     free(node2);
     free(node3);
-    free(node4);
-    free(node5);
 
     return (0);
 }*/
