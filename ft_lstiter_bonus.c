@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macudesarasqueta <macudesarasqueta@stud    +#+  +:+       +#+        */
+/*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 11:30:33 by mde-sara          #+#    #+#             */
-/*   Updated: 2024/04/15 15:17:51 by macudesaras      ###   ########.fr       */
+/*   Created: 2024/04/16 11:23:26 by mde-sara          #+#    #+#             */
+/*   Updated: 2024/04/16 11:39:56 by mde-sara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    if (!lst)
+	if (!lst || !f)
 		return ;
-    while (lst)
-    {
-        (*f)(lst->content);
-        lst = lst->next;
-    }
+	while (lst)
+	{
+		(*f)(lst->content);
+		lst = lst->next;
+	}
 }
 
 /*void print_content(void *content)

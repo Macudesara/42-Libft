@@ -6,7 +6,7 @@
 /*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:04:25 by mde-sara          #+#    #+#             */
-/*   Updated: 2023/06/22 11:33:34 by mde-sara         ###   ########.fr       */
+/*   Updated: 2024/04/16 11:34:54 by mde-sara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		return ;
 	i = 0;
 	while (s[i])
-	{	
+	{
 		f(i, s + i);
 		i++;
 	}

@@ -6,15 +6,13 @@
 /*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:53:24 by mde-sara          #+#    #+#             */
-/*   Updated: 2023/05/23 13:42:31 by mde-sara         ###   ########.fr       */
+/*   Updated: 2024/04/16 11:36:18 by mde-sara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <stdio.h>
-#include <string.h>*/
+/*#include <string.h>*/
 //#include <stddef.h>
-
 /*Copy the first n bytes from the source memory block (src) 
  * to the destination memory block (dest) 
  *even when the source and destination memory blocks overlap.
@@ -37,7 +35,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n-- > 0)
 			d[n] = s[n];
 	else
-	{	
+	{
 		while (i < n)
 		{
 			d[i] = s[i];

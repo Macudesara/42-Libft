@@ -6,7 +6,7 @@
 /*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 09:18:09 by mde-sara          #+#    #+#             */
-/*   Updated: 2023/06/23 15:53:38 by mde-sara         ###   ########.fr       */
+/*   Updated: 2024/04/16 11:59:17 by mde-sara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,43 @@
 /*#include <stdlib.h>
 #include <stdio.h>*/
 
-int	ft_countwords(char *str, char sep)
+char	**ft_free(char **memtot, int j)
 {
-	int	numword;
-	int	i;
-
-	i = 1;
-	numword = 0;
-	if (str[0] == '\0')
-		return (numword);
-	else if (str[0] != sep && str[0] != '\0')
-			numword++;
-	while (str[i])
-	{
-		if (str[i] != sep && str[i - 1] == sep)
-			numword++;
-	i++;
-	}
-	return (numword);
+	while (--j >= 0)
+		free(memtot[j]);
+	free(memtot);
+	return (NULL);
 }
 
-int	ft_countletters(char *str, char c, int i)
+int	ft_lwords(char *s, char c)
+{
+	int	i;
+	int	cwords;
+
+	i = 0;
+	cwords = 0;
+	if (s[0] == '\0')
+		return (cwords);
+	if (s[i] != c && s[i] != '\0')
+	{
+		cwords++;
+		i++;
+	}
+	while (s[i])
+	{
+		if (s[i] != c && s[i - 1] == c)
+			cwords++;
+		i++;
+	}
+	return (cwords);
+}
+
+int	ft_lenlet(char *s, char c, int i)
 {
 	int	j;
 
 	j = 0;
-	while (str[i] != c && str[i])
+	while (s[i] != c && s[i])
 	{
 		i++;
 		j++;
@@ -47,70 +58,62 @@ int	ft_countletters(char *str, char c, int i)
 	return (j);
 }
 
-char	*ft_malloc_free(char **memtot, int word_index, int num)
+char	**ft_submem(char **memtot, char *str, char c, int let)
 {
-	memtot[word_index] = (char *)malloc((num + 1) * sizeof(char));
-	if (!memtot[word_index])
-	{
-		while (--word_index >= 0)
-			free(memtot[word_index]);
-		free(memtot);
-		return (NULL);
-	}
-	return (memtot[word_index]);
-}
+	int	i;
+	int	j;
+	int	k;
 
-char	**ft_memword(char **memtot, char *str, char c, int num)
-{
-	int	i_inde_len[3];
-
-	i_inde_len[0] = 0;
-	i_inde_len[1] = 0;
-	while (str[i_inde_len[0]])
+	i = 0;
+	j = 0;
+	while (str[i] != '\0')
 	{
-		num = ft_countletters(str, c, i_inde_len[0]);
-		if (num > 0)
+		while (str[i] == c)
+			i++;
+		let = ft_lenlet(str, c, i);
+		if (str[i])
 		{
-			memtot[i_inde_len[1]] = ft_malloc_free(memtot, i_inde_len[1], num);
-			i_inde_len[2] = 0;
-			while (i_inde_len[2] < num)
-			{
-				if (str[i_inde_len[0]] != c)
-					memtot[i_inde_len[1]][i_inde_len[2]] = str[i_inde_len[0]];
-				i_inde_len[0]++;
-				i_inde_len[2]++;
-			}
-			memtot[i_inde_len[1]][i_inde_len[2]] = '\0';
-			i_inde_len[1]++;
+			k = 0;
+			memtot[j] = (char *)malloc((let + 1) * sizeof (char));
+			if (!memtot[j])
+				return (ft_free(memtot, j));
+			while (str[i] && str[i] != c)
+				memtot[j][k++] = str[i++];
+			memtot[j][k] = '\0';
+			j++;
 		}
-		else
-			i_inde_len[0]++;
 	}
+	memtot[j] = NULL;
 	return (memtot);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		lentot;
 	char	**memtot;
 	char	*str;
+	int		i;
+	int		len;
 
+	i = 0;
+	if (!s)
+		return (NULL);
 	str = (char *)s;
-	lentot = ft_countwords(str, c);
-	memtot = (char **)malloc((lentot + 1) * sizeof(char *));
+	len = ft_lwords(str, c);
+	memtot = (char **)malloc((len + 1) * sizeof(char *));
 	if (!memtot)
 		return (NULL);
-	memtot[lentot] = NULL;
-	ft_memword(memtot, str, c, 0);
+	memtot = ft_submem(memtot, str, c, i);
+	if (!memtot)
+		return (NULL);
 	return (memtot);
 }
 
 /*int	main(void)
 {
-	char const	str[] = "  hello beauty ";
+	char	str[] = "  p jd  d";
 	char	sep = ' ';
 
-	char **split = ft_split(str, sep);
+	char	**split = ft_split(str, sep);
 	if (split)
 	{
 		int	i = 0;

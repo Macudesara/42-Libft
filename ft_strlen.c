@@ -6,7 +6,7 @@
 /*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:27:53 by mde-sara          #+#    #+#             */
-/*   Updated: 2023/05/10 10:40:04 by mde-sara         ###   ########.fr       */
+/*   Updated: 2024/04/16 11:51:28 by mde-sara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 /*#include <stdio.h>
 #include <string.h>*/
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 

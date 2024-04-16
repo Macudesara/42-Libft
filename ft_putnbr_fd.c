@@ -6,7 +6,7 @@
 /*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:19:39 by mde-sara          #+#    #+#             */
-/*   Updated: 2023/06/22 15:22:06 by mde-sara         ###   ########.fr       */
+/*   Updated: 2024/04/16 11:35:57 by mde-sara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 {
 	write(fd, &c, 1);
 }*/
-
 void	ft_putnbr_fd(int n, int fd)
 {
 	int	module;
@@ -26,7 +25,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n == -2147483648)
 		write (fd, "-2147483648", 11);
 	else
-	{	
+	{
 		if (n < 0)
 		{
 			ft_putchar_fd('-', fd);

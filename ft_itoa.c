@@ -6,15 +6,12 @@
 /*   By: mde-sara <mde-sara@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:18:15 by mde-sara          #+#    #+#             */
-/*   Updated: 2023/06/05 12:20:25 by mde-sara         ###   ########.fr       */
+/*   Updated: 2024/04/16 11:44:51 by mde-sara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>*/
-
+/*#include <string.h>*/
 //len function calculator to get malloc size
 int	ft_lenn(int num)
 {
@@ -56,7 +53,7 @@ char	ft_printnum(int flag, int n, int lennum, char *str)
 		n = nbyn;
 	}
 	return (*str);
-}	
+}
 
 char	*ft_itoa(int n)
 {
